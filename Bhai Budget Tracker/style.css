@@ -1,0 +1,121 @@
+:root {
+    --primary: #0f172a;
+    --accent: #3b82f6;
+    --income: #10b981;
+    --expense: #ef4444;
+    --bg: #f8fafc;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: var(--bg);
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.container { width: 400px; }
+
+header { text-align: center; margin-bottom: 30px; }
+header h1 { color: var(--primary); letter-spacing: 1px; }
+
+.balance-container {
+    background: var(--primary);
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.inc-exp-container {
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    border-radius: 12px;
+}
+
+.inc-exp-container > div { flex: 1; text-align: center; }
+.inc-exp-container > div:first-of-type { border-right: 1px solid #dedede; }
+
+.money { font-size: 20px; font-weight: bold; margin: 5px 0; }
+.money.plus { color: var(--income); }
+.money.minus { color: var(--expense); }
+
+h3 { border-bottom: 1px solid #bbb; padding-bottom: 10px; margin: 40px 0 10px; }
+
+.list { list-style-type: none; padding: 0; margin-bottom: 40px; }
+.list li {
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.list li.plus { border-right: 5px solid var(--income); }
+.list li.minus { border-right: 5px solid var(--expense); }
+
+.form-control label { display: inline-block; margin: 10px 0; }
+.form-control input {
+    border: 1px solid #dedede;
+    border-radius: 5px;
+    display: block;
+    font-size: 16px;
+    padding: 12px;
+    width: 100%;
+}
+
+.btn {
+    cursor: pointer;
+    background-color: var(--accent);
+    color: #fff;
+    border: 0;
+    display: block;
+    font-size: 16px;
+    margin: 20px 0 30px;
+    padding: 12px;
+    width: 100%;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn:hover { background-color: #2563eb; }
+/* Delete Button Ka Asli Roop-Rang */
+.delete-btn {
+  cursor: pointer;
+  background-color: #e74c3c; /* Lal (Red) rang ka button */
+  color: #fff; /* Safed (White) rang ka 'x' */
+  border: 0;
+  padding: 2px 8px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.2;
+  position: absolute;
+  top: 50%;
+  right: 10px; /* List item ke bilkul right side par set karne ke liye */
+  transform: translateY(-50%);
+  opacity: 0; /* Shuruat mein button chupa rahega */
+  transition: opacity 0.3s ease; /* Smooth tarike se samne aane ke liye */
+  border-radius: 3px;
+}
+
+/* Jab user list item par mouse lekar jaye (Hover), tab button nazar aaye */
+.list li:hover .delete-btn {
+  opacity: 1;
+}
+
+/* Jab user button par mouse le jaye to uska rang thora aur gehra ho jaye */
+.delete-btn:hover {
+  background-color: #c0392b;
+}
